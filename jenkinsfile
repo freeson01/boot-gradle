@@ -1,7 +1,7 @@
 /* pipeline 변수 설정 */
-def DOCKER_IMAGE_NAME = "freeson01/project-repo"           // 생성하는 Docker image 이름
-def DOCKER_IMAGE_TAGS = "simple-web"  // 생성하는 Docker image 태그
-def NAMESPACE = "testbed"
+def DOCKER_IMAGE_NAME = "freeson01/project-repo"	// DockerHub image Name
+def DOCKER_IMAGE_TAGS = "simple-web"				// DockerHub image TAG
+def NAMESPACE = "testbed"							// Kubernetes 에서 사용할 Namespace
 def VERSION = "${env.BUILD_NUMBER}"
 def DATE = new Date();
   
@@ -18,7 +18,7 @@ podTemplate(label: 'builder',
             ]) {
     node('builder') {
         stage('Checkout') {
-             checkout scm   // gitlab으로부터 소스 다운
+             checkout scm   // github clone
         }
         stage('Build') {
             container('gradle') {
