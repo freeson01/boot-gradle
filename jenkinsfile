@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 /* pipeline 변수 설정 */
 def DOCKER_IMAGE_NAME = "freeson01/project-repo"	// DockerHub image Name
 def DOCKER_IMAGE_TAGS = "simple-web"				// DockerHub image TAG
