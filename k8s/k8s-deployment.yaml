@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-web
+  namespace: testbed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-web
+  template:
+    metadata:
+      labels:
+        app: simple-web
+    spec:
+      containers:
+        - name: simple-web
+          image: freeson01/project-repo:simple-web
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          env:
+            - name: DATE
+              value: 'DATE_STRING'
+      imagePullSecrets:
+        - name: my-secret
