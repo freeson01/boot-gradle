@@ -10,7 +10,7 @@ group = 'com'
 sourceCompatibility = '1.8'
 
 war {
-	archiveName = 'boot-gradle.war'
+	archiveName = 'gradle-web-nodb.war'
 }
 
 
